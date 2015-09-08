@@ -2,10 +2,11 @@
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <h1 class="home">Show Page</h1>
-    <!-- <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %> -->
-    <h2 class="home"> nickname: </h2>
-    <h2 class="home"> email: </h2>
-    <%= link_to "Logout", "", class: "btn btn-lg btn-default btn-home" %>
+    <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %>
+    <h2 class="home"> name: <%= current_user.name %> </h2>
+    <h2 class="home"> nickname: <%= current_user.nickname %> </h2>
+    <h2 class="home"> bio: <%= current_user.bio %> </h2>
+    <%= link_to "Logout", logout_path, class: "btn btn-lg btn-default btn-home" %>
   </div>
   <div class="col-md-2"></div>
 </div>
