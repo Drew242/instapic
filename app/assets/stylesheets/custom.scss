@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  background-image: url("night_horizon.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+  url("Autumn_bench.jpeg");
+  background-size: 100%;
 }
 
 .container-home {
