@@ -6,6 +6,23 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
   url("Autumn_bench.jpeg");
   background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.navbar-default {
+background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #F8BB44;
+}
+
+.container-show {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-size: 80%;
+  text-align: center;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 }
 
 .container-home {
@@ -31,7 +48,7 @@ a.btn.btn-lg.btn-default.btn-home {
   background-color: transparent;
   border-width: 2px;
   color: #60BFBF;
-  font-weight: 100;
+  font-weight: 200;
   border-color: #60BFBF;
   margin-top: 20px;
 }
