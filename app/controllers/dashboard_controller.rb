@@ -1,6 +1,5 @@
 class DashboardController < ApplicationController
-  def index
-  end
+  before_action :authorize!
 
   def show
   end
