@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'omniauth-instagram'
 gem 'figaro'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'byebug'
