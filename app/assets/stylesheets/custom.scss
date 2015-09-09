@@ -2,10 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  background-image: url("night_horizon.jpg");
+}
+
 .container-home {
-  background-color: #1B3C59;
+  background-size: 100%;
   min-height: 100vh;
-  padding-top: 30vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
   text-align: center;
 }
 

@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
     user.nickname  = data.info.nickname
     user.image_url = data.info.image
     user.bio       = data.info.bio
+    user.website   = data.info.website
     user.token     = data.credentials.token
     user.name      = data.info.name
+    user.provider  = data.provider 
     user.save
 
     user
