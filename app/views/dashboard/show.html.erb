@@ -1,15 +1,20 @@
 <div class="container-fluid container-show">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <div class="panel-heading">
-      <div class="panel-title">
-        <h1 class="home">Welcome <%= current_user.name %></h1>
-      </div>
-    </div>
+    <h1 class="home">Welcome <%= current_user.name %></h1>
     <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %>
     <h2 class="home"> nickname: <%= current_user.nickname %> </h2>
     <h2 class="home"> bio: <%= current_user.bio %> </h2>
     <%= link_to "Logout", logout_path, class: "btn btn-lg btn-default btn-home" %>
   </div>
-  <div class="col-md-2"></div>
+</div>
+<div class="container-fluid container-show">
+  <% current_user.recent_posts.each do |post| %>
+  <div class="col-md-4">
+    <ul><%= image_tag post.images.low_resolution.url class: "img-rounded" %></ul>
+    <% post.comments.data.each do |comment| %>
+    <p id="comment">"<%= comment.text %>" Love, <%= comment.from.username %></p>
+    <% end %>
+  </div>
+  <% end %>
 </div>
