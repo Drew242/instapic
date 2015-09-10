@@ -1,7 +1,11 @@
 <div class="container-fluid container-show">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <h1 class="home">Welcome <%= current_user.name %></h1>
+    <div class="panel-heading">
+      <div class="panel-title">
+        <h1 class="home">Welcome <%= current_user.name %></h1>
+      </div>
+    </div>
     <%= image_tag current_user.image_url, class: "img-circle img-thumbnail home-image" %>
     <h2 class="home"> nickname: <%= current_user.nickname %> </h2>
     <h2 class="home"> bio: <%= current_user.bio %> </h2>
@@ -11,10 +15,38 @@
 <div class="container-fluid container-show">
   <% current_user.recent_posts.each do |post| %>
   <div class="col-md-4">
-    <ul><%= image_tag post.images.low_resolution.url class: "img-rounded" %></ul>
-    <% post.comments.data.each do |comment| %>
-    <p id="comment">"<%= comment.text %>" Love, <%= comment.from.username %></p>
-    <% end %>
+    <a href="#" data-toggle="modal" data-target="#photo-<%= post.id %>">
+        <p><%= image_tag post.images.low_resolution.url, class: "img-responsive",
+                  alt: "#{current_user.name} image" %></p>
+      </a>
+    <!-- <p><%= image_tag post.images.low_resolution.url class: "img-rounded" %></p> -->
+    <!-- <% post.comments.data.each do |comment| %>
+    <li id="username"><%= comment.from.username %></li>
+    <li id="comment"><%= comment.text %></li>
+    <% end %> -->
   </div>
+  <!-- Modal -->
+      <div id="photo-<%= post.id %>" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h1 class="modal-title"><%= current_user.nickname %></h1>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <%= image_tag post.images.standard_resolution.url, class: "img-responsive", alt: "#{post} image" %>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> <!-- end of Modal -->
   <% end %>
 </div>
