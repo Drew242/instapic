@@ -14,6 +14,8 @@ gem 'bootstrap-sass', '~> 3.3.3'
 gem 'omniauth-instagram'
 gem 'figaro'
 gem 'font-awesome-sass'
+gem 'hurley'
+gem 'instagram'
 
 group :development, :test do
   gem 'byebug'

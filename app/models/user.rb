@@ -8,9 +8,17 @@ class User < ActiveRecord::Base
     user.website   = data.info.website
     user.token     = data.credentials.token
     user.name      = data.info.name
-    user.provider  = data.provider 
+    user.provider  = data.provider
     user.save
 
     user
+  end
+
+  def client
+    @client = Instagram.client(access_token: token)
+  end
+
+  def recent_posts
+    client.user_recent_media
   end
 end

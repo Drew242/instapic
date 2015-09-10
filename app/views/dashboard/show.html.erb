@@ -11,5 +11,44 @@
     <h2 class="home"> bio: <%= current_user.bio %> </h2>
     <%= link_to "Logout", logout_path, class: "btn btn-lg btn-default btn-home" %>
   </div>
-  <div class="col-md-2"></div>
+</div>
+<div class="container-fluid container-show">
+  <% current_user.recent_posts.each do |post| %>
+  <div class="col-md-4">
+    <a href="#" data-toggle="modal" data-target="#photo-<%= post.id %>">
+      <p><%= image_tag post.images.low_resolution.url, class: "img-responsive",
+      alt: "#{current_user.name} image" %></p>
+    </a>
+  </div>
+  <!-- Modal -->
+  <div id="photo-<%= post.id %>" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h1 class="modal-title"><%= current_user.nickname %></h1>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <%= image_tag post.images.standard_resolution.url, class: "img-responsive", alt: "#{post} image" %>
+            </div>
+            <div class="col-md-6">
+              <% current_user.recent_posts.each do |post| %>
+                <% post.comments.data.each do |comment| %>
+                  <p>"<%= comment.text %>"<br>Love, <strong><%= comment.from.username %></strong></p>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end of Modal -->
+  <% end %>
 </div>
