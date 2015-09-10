@@ -20,5 +20,10 @@ gem 'instagram'
 group :development, :test do
   gem 'byebug'
   gem 'pry'
-  gem 'web-console', '~> 2.0'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'launchy'
+  gem 'database_cleaner'
 end
