@@ -36,11 +36,9 @@
               <%= image_tag post.images.standard_resolution.url, class: "img-responsive", alt: "#{post} image" %>
             </div>
             <div class="col-md-6">
-              <% current_user.recent_posts.each do |post| %>
                 <% post.comments.data.each do |comment| %>
                   <p>"<%= comment.text %>"<br>Love, <strong><%= comment.from.username %></strong></p>
                 <% end %>
-              <% end %>
             </div>
           </div>
         </div>
