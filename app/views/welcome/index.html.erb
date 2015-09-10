@@ -1,9 +1,23 @@
+<% if current_user %>
 <div class="container-fluid container-home">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
+  <div class="col=md-8">
+    <h1 class="home">Recent Posts</h1>
+  </div><br><br>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <% current_user.feed.take(10).each do |post| %>
+      <p><%= image_tag post.images.standard_resolution.url, class: "img-responsive",
+      alt: "#{current_user.name} image" %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% else %>
+<div class="container-fluid container-home">
+  <div class="col-md-8 col-md-offset-2">
     <h1 class="home">This is API-rture</h1>
     <h2 class="home">It's basically like Instagram, but, like, not quite as good...</h2>
     <%= link_to "Login with Instagram", "/auth/instagram", class: "btn btn-lg btn-default btn-home" %>
   </div>
-  <div class="col-md-2"></div>
 </div>
+<% end %>

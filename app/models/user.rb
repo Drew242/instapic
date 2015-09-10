@@ -21,4 +21,12 @@ class User < ActiveRecord::Base
   def recent_posts
     client.user_recent_media
   end
+
+  def feed
+    client.user_media_feed
+  end
+
+  def likes
+    client.like_media
+  end
 end
