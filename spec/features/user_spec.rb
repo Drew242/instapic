@@ -1,0 +1,15 @@
+require 'rails_helper'
+
+RSpec.describe "#landing_page" do
+
+  context "when visiting the root path" do
+    it "user can see the title of the site" do
+      visit root_path
+
+      expect(page).to have_content("API-rture")
+      expect(page).to_not have_content("Profile")
+      expect(current_path).to eq(root_path)
+    end
+  end
+
+end

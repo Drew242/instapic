@@ -16,9 +16,18 @@ gem 'figaro'
 gem 'font-awesome-sass'
 gem 'hurley'
 gem 'instagram'
+gem 'rails_12factor'
+
 
 group :development, :test do
   gem 'byebug'
   gem 'pry'
-  gem 'web-console', '~> 2.0'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'awesome_print'
+  gem  'simplecov', :require => false
 end
