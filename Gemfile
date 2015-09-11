@@ -16,6 +16,8 @@ gem 'figaro'
 gem 'font-awesome-sass'
 gem 'hurley'
 gem 'instagram'
+gem 'rails_12factor'
+
 
 group :development, :test do
   gem 'byebug'
@@ -27,4 +29,5 @@ group :development, :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'awesome_print'
+  gem  'simplecov', :require => false
 end

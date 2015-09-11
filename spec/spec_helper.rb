@@ -2,6 +2,7 @@ require 'webmock'
 require 'vcr'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'simplecov'
 
 VCR.configure do |config|
   config.cassette_library_dir = "fixtures/vcr_cassettes"
@@ -9,7 +10,7 @@ VCR.configure do |config|
 end
 
 RSpec.configure do |config|
-
+  SimpleCov.start 'rails' 
   config.include Capybara::DSL
 
   config.before(:suite) do
