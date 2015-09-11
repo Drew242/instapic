@@ -9,6 +9,8 @@ VCR.configure do |config|
   config.hook_into :webmock # or :fakeweb
 end
 
+WebMock.stub_request(:any, "www.localhost:3000")
+
 RSpec.configure do |config|
   SimpleCov.start 'rails'
   config.include Capybara::DSL

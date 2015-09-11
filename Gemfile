@@ -22,12 +22,15 @@ gem 'rails_12factor'
 group :development, :test do
   gem 'byebug'
   gem 'pry'
-  gem 'vcr'
-  gem 'webmock'
   gem 'capybara'
   gem 'rspec-rails'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'awesome_print'
   gem  'simplecov', :require => false
+end
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
 end
