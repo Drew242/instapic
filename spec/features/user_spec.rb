@@ -7,6 +7,7 @@ RSpec.describe "#landing_page" do
       visit root_path
 
       expect(page).to have_content("API-rture")
+      expect(page).to_not have_content("Profile")
       expect(current_path).to eq(root_path)
     end
   end

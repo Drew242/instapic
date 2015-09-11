@@ -10,8 +10,34 @@ VCR.configure do |config|
 end
 
 RSpec.configure do |config|
-  SimpleCov.start 'rails' 
+  SimpleCov.start 'rails'
   config.include Capybara::DSL
+
+  def user
+   @user ||= User.new(name: "Drew",
+                      nickname: "drew_conly",
+                      image_url: "something.jpg",
+                      bio: "The craziest cat around",
+                      website: "drewby-on-rails.com",
+                      token: ENV['USER_TOKEN'],
+                      uid: "1111",
+                      provider: "instagram")
+ end
+
+ def login_user
+    OmniAuth.config.test_mode = true
+
+    OmniAuth.config.mock_auth[:instagram] = OmniAuth::AuthHash.new ({
+      'provider'    => user.provider,
+      'uid'         => user.uid,
+      'info'        => {:name =>user.name,
+                        :nickname =>user.nickname,
+                        :bio =>user.bio,
+                        :website =>user.website,
+                        :image =>user.image_url},
+      'credentials' => {:token => ENV['USER_TOKEN']}
+    })
+  end
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
